@@ -6,9 +6,10 @@
 3. [Dataset Overview](#dataset-overview)
 4. [Model Architecture](#model-architecture)
 5. [Active Learning Strategy](#active-learning-strategy)
-6. [Performance Metrics](#performance-metrics)
-7. [Simulation Analysis](#simulation-analysis)
-8. [Conclusion](#conclusion)
+6. [Simulation Algorithm](#simulation-algorithm)
+7. [Performance Metrics](#performance-metrics)
+8. [Simulation Analysis](#simulation-analysis)
+9. [Conclusion](#conclusion)
 
 ---
 
@@ -71,6 +72,33 @@ Active learning is implemented to improve model performance by focusing on uncer
 
 ---
 
+## <a id="simulation-algorithm"></a>Simulation Algorithm
+The simulation algorithm for active learning-based weather prediction is as follows:
+
+1. **Initialize**:
+   - Split the dataset into a small labeled set (`dataset_X`, `dataset_y`) and a large unlabeled pool (`unlabeled_pool_X`, `unlabeled_pool_y`).
+   - Initialize the machine learning model (Random Forest or Logistic Regression).
+
+2. **Train Initial Model**:
+   - Train the model on the initial labeled dataset.
+
+3. **Active Learning Loop**:
+   - For each epoch:<br>
+     a. Use the model to predict probabilities for the unlabeled pool.<br>
+     b. Compute entropy for each prediction to measure uncertainty.<br>
+     c. Identify the most uncertain sample (highest entropy).<br>
+     d. Add the most uncertain sample to the labeled dataset.<br>
+     e. Retrain the model on the updated labeled dataset.<br>
+     f. Evaluate the model on the validation set and record performance metrics.<br>
+
+4. **Termination**:
+   - Stop after a fixed number of epochs or when the model's performance stabilizes.
+
+5. **Final Evaluation**:
+   - Evaluate the final model on the test set using accuracy, precision, recall, and F1-score.
+
+---
+
 ## <a id="performance-metrics"></a>Performance Metrics
 The models are evaluated using the following metrics:
 - **Accuracy**: Proportion of correct predictions.
@@ -97,3 +125,8 @@ The models are evaluated using the following metrics:
 - This approach ensures better generalization, especially for uncertain cases, making it suitable for real-world weather forecasting applications.
 
 ---
+
+### How to Use This Repository
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/weather-prediction-active-learning.git
