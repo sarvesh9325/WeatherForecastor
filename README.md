@@ -125,8 +125,3 @@ The models are evaluated using the following metrics:
 - This approach ensures better generalization, especially for uncertain cases, making it suitable for real-world weather forecasting applications.
 
 ---
-
-### How to Use This Repository
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/weather-prediction-active-learning.git
